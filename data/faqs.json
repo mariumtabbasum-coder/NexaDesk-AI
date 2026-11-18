@@ -17,6 +17,23 @@
     ]
   },
   {
+    "id": 2,
+    "category": "Payments",
+    "question": "Which payment methods do you accept?",
+    "answer": "We accept supported credit cards, debit cards, and selected digital payment methods. Available options are shown at checkout.",
+    "variations": [
+      "How can I pay",
+      "What payment options are available",
+      "Can I pay by card"
+    ],
+    "keywords": [
+      "payment",
+      "pay",
+      "card",
+      "billing"
+    ]
+  },
+  {
     "id": 3,
     "category": "Refunds",
     "question": "What is your refund policy?",
@@ -80,13 +97,5 @@
       "onboarding",
       "account"
     ]
-  },
-  {
-    "id": 7,
-    "category": "Payments",
-    "question": "What payment methods do you accept?",
-    "answer": "We accept cash, debit cards, credit cards, and online payments.",
-    "variations": [],
-    "keywords": []
   }
 ]

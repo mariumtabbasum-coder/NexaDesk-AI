@@ -25,6 +25,16 @@ response_service = ResponseService(gemini)
 chat_store = JsonStore("data/chat_history.json", [])
 unanswered_store = JsonStore("data/unanswered_questions.json", [])
 
+@app.errorhandler(Exception)
+def handle_error(e):
+    from werkzeug.exceptions import HTTPException
+    if request.path.startswith("/api/"):
+        code = e.code if isinstance(e, HTTPException) else 500
+        return jsonify({"error": (e.description if isinstance(e, HTTPException) else f"Server error: {e}")}), code
+    if isinstance(e, HTTPException):
+        return e
+    raise e
+
 @app.route("/")
 def index():
     return render_template("index.html")

@@ -28,3 +28,10 @@ Flask · Bootstrap 5 · Vanilla JavaScript · Gemini API · NumPy · JSON storag
 - Similarity score is a retrieval relevance score, not factual confidence.
 - The starter currency tool uses Frankfurter's public endpoint; its supported currencies and availability may change.
 - JSON storage is suitable for local demo only. Use a database and authentication before production deployment.
+
+## Deploying on Vercel
+Vercel's filesystem is read-only, so chats/FAQs need an external store:
+1. Vercel project -> Storage / Marketplace -> add **Upstash Redis** (free) and connect it to the project.
+   This adds `KV_REST_API_URL` and `KV_REST_API_TOKEN` automatically.
+2. Project -> Settings -> Environment Variables: add `GEMINI_API_KEY`, `WEATHER_API_KEY` (optional).
+3. Redeploy.

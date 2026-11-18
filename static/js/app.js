@@ -39,9 +39,8 @@ async function sendMessage(textOverride){
  sending=true;try{await doSend(text)}finally{sending=false;$("#chatInput")?.focus()}
 }
 async function doSend(text){
- if(!activeChatId){const c=await api("/api/new-chat",jsonOptions({}));activeChatId=c.id}
  appendMessage("user",text);const pending=document.createElement("div");pending.className="message assistant";pending.id="pending";pending.innerHTML=`<span class="message-avatar">✦</span><div class="message-bubble"><span class="typing"><i></i><i></i><i></i></span> Thinking…</div>`;$("#messages").append(pending);$("#messages").scrollTop=$("#messages").scrollHeight;
- try{const r=await api("/api/chat",jsonOptions({message:text,chat_id:activeChatId}));$("#pending")?.remove();activeChatId=r.chat_id;appendMessage("assistant",r.answer,{sources:r.sources});}
+ try{const r=await api("/api/chat",jsonOptions({message:text,chat_id:activeChatId||null}));$("#pending")?.remove();activeChatId=r.chat_id;appendMessage("assistant",r.answer,{sources:r.sources});}
  catch(e){$("#pending")?.remove();appendMessage("assistant",`Sorry, an error occurred: ${e.message}`)}
 }
 function renderSearch(){
@@ -75,3 +74,5 @@ async function renderSettings(){const health=await api("/api/health");if(current
 document.addEventListener("click",e=>{const v=e.target.closest("[data-view]");if(v){if(v.dataset.view==="chat"&&v.classList.contains("nav-link"))activeChatId=null;setView(v.dataset.view);return}const ask=e.target.closest("[data-ask]");if(ask){setView("chat");setTimeout(()=>sendMessage(ask.dataset.ask),80);return}const copy=e.target.closest("[data-copy]");if(copy){navigator.clipboard?.writeText(copy.dataset.copy);toast("Answer copied");return}const feedback=e.target.closest("[data-feedback]");if(feedback){if(activeChatId){api("/api/feedback",jsonOptions({chat_id:activeChatId,message_index:Number(feedback.dataset.index),rating:feedback.dataset.feedback})).then(()=>toast("Thanks for your feedback!")).catch(()=>toast("Feedback could not be saved"));}else toast("Thanks for your feedback!");return}});
 $("#menuBtn").onclick=()=>{$("#sidebar").classList.add("open");$("#drawerOverlay").classList.add("show")};$("#drawerOverlay").onclick=()=>{$("#sidebar").classList.remove("open");$("#drawerOverlay").classList.remove("show")};
 setView("dashboard");
+
+window.addEventListener("unhandledrejection",e=>{console.error(e.reason);toast((e.reason&&e.reason.message)||"Something went wrong")});
