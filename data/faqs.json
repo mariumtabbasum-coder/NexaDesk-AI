@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "category": "Account & Login",
+    "question": "How can I reset my password?",
+    "answer": "Choose Forgot Password on the sign-in page and follow the reset instructions sent to your registered email address.",
+    "variations": [
+      "I forgot my password",
+      "I cannot access my account",
+      "How do I change my password"
+    ],
+    "keywords": [
+      "password",
+      "reset",
+      "login",
+      "account"
+    ]
+  },
+  {
+    "id": 3,
+    "category": "Refunds",
+    "question": "What is your refund policy?",
+    "answer": "Eligible purchases may be submitted for a refund request within seven days. Requests are reviewed according to the purchase terms.",
+    "variations": [
+      "Can I get my money back",
+      "How do refunds work",
+      "I want to return my purchase"
+    ],
+    "keywords": [
+      "refund",
+      "return",
+      "money back"
+    ]
+  },
+  {
+    "id": 4,
+    "category": "Support",
+    "question": "How can I contact customer support?",
+    "answer": "You can contact the support team through the Contact Support form. Include your order or account details where relevant.",
+    "variations": [
+      "I need help",
+      "How do I talk to support",
+      "Where can I contact you"
+    ],
+    "keywords": [
+      "support",
+      "contact",
+      "help"
+    ]
+  },
+  {
+    "id": 5,
+    "category": "General Information",
+    "question": "What are your business hours?",
+    "answer": "Our sample support hours are Monday to Friday, 9:00 AM to 5:00 PM local time. This is demo FAQ content and can be edited.",
+    "variations": [
+      "When are you open",
+      "What time does support close",
+      "Are you open on weekends"
+    ],
+    "keywords": [
+      "hours",
+      "timing",
+      "open",
+      "close"
+    ]
+  },
+  {
+    "id": 6,
+    "category": "Products & Services",
+    "question": "How do I get started?",
+    "answer": "Create an account, review the available plans or services, and follow the onboarding steps shown in your dashboard.",
+    "variations": [
+      "How to start",
+      "Getting started guide",
+      "How do I begin"
+    ],
+    "keywords": [
+      "start",
+      "onboarding",
+      "account"
+    ]
+  },
+  {
+    "id": 7,
+    "category": "Payments",
+    "question": "What payment methods do you accept?",
+    "answer": "We accept cash, debit cards, credit cards, and online payments.",
+    "variations": [],
+    "keywords": []
+  }
+]
